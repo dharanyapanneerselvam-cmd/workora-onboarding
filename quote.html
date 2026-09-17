@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Generator with History</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 450px; margin: 40px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; text-align: center; }
+        .quote-box { background: #f9f9f9; padding: 15px; border-radius: 6px; font-style: italic; margin-bottom: 15px; }
+        button { background: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; }
+        ul { list-style: none; padding: 0; text-align: left; }
+        li { background: #eee; padding: 8px; margin: 5px 0; border-radius: 4px; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <h2>💬 Quote Generator</h2>
+    <div class="quote-box" id="currentQuote">Click the button to generate a quote!</div>
+    <button onclick="generateQuote()">Generate Quote</button>
+
+    <h3>Quote History</h3>
+    <ul id="historyList"></ul>
+
+    <script>
+        const quotes = [
+            "The best way to predict the future is to create it.",
+            "Code is like humor. When you have to explain it, it’s bad.",
+            "Simplicity is the soul of efficiency.",
+            "Make it work, make it right, make it fast."
+        ];
+
+        function generateQuote() {
+            let randomIndex = Math.floor(Math.random() * quotes.length);
+            let selectedQuote = quotes[randomIndex];
+            document.getElementById('currentQuote').textContent = selectedQuote;
+
+            let li = document.createElement('li');
+            li.textContent = selectedQuote;
+            document.getElementById('historyList').prepend(li);
+        }
+    </script>
+</body>
+</html>
