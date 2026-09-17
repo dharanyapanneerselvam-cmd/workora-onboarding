@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Availability Tracker</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: 40px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; text-align: center; }
+        input, select, button { margin: 8px 0; padding: 8px; width: 100%; box-sizing: border-box; }
+        button { background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        table { width: 100%; margin-top: 15px; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        .Available { color: green; font-weight: bold; }
+        .Busy { color: red; font-weight: bold; }
+        .On-Leave { color: orange; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>👥 Team Availability Tracker</h2>
+    <input type="text" id="memberName" placeholder="Member Name">
+    <select id="statusSelect">
+        <option value="Available">Available</option>
+        <option value="Busy">Busy</option>
+        <option value="On-Leave">On Leave</option>
+    </select>
+    <button onclick="addMember()">Add Member</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="teamList"></tbody>
+    </table>
+
+    <script>
+        function addMember() {
+            let name = document.getElementById('memberName').value;
+            let status = document.getElementById('statusSelect').value;
+            if(!name) return;
+            let row = `<tr><td>${name}</td><td class="${status}">${status}</td></tr>`;
+            document.getElementById('teamList').innerHTML += row;
+            document.getElementById('memberName').value = '';
+        }
+    </script>
+</body>
+</html>
