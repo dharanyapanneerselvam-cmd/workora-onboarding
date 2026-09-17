@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Query Filter System</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 450px; margin: 40px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; text-align: center; }
+        input { margin-bottom: 15px; padding: 10px; width: 100%; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        ul { list-style: none; padding: 0; text-align: left; }
+        li { background: #f8f9fa; padding: 10px; margin: 5px 0; border: 1px solid #e9ecef; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h2>🔍 Live Query Filter System</h2>
+    <input type="text" id="searchInput" onkeyup="filterList()" placeholder="Search items live...">
+
+    <ul id="itemList">
+        <li>JavaScript</li>
+        <li>React.js</li>
+        <li>Node.js</li>
+        <li>Express.js</li>
+        <li>MongoDB</li>
+        <li>HTML & CSS</li>
+        <li>Python</li>
+    </ul>
+
+    <script>
+        function filterList() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let items = document.querySelectorAll('#itemList li');
+
+            items.forEach(item => {
+                let text = item.textContent.toLowerCase();
+                if (text.includes(input)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
