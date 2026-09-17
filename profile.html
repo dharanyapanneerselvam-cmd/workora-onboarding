@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Card Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; margin-top: 40px; background: #f4f4f9; }
+        .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; width: 280px; margin-top: 20px; }
+        .card img { width: 90px; height: 90px; border-radius: 50%; }
+        input { margin: 5px; padding: 8px; width: 80%; border: 1px solid #ccc; border-radius: 4px; }
+        button { background: #28a745; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Profile Card Generator</h2>
+    <input type="text" id="nameInput" placeholder="Enter Name">
+    <input type="text" id="roleInput" placeholder="Enter Role (e.g. Developer)">
+    <button onclick="generateCard()">Generate Card</button>
+
+    <div class="card" id="profileCard">
+        <img src="https://via.placeholder.com/90" id="userImg" alt="Avatar">
+        <h3 id="userName">User Name</h3>
+        <p id="userRole">Software Developer</p>
+    </div>
+
+    <script>
+        function generateCard() {
+            let name = document.getElementById('nameInput').value;
+            let role = document.getElementById('roleInput').value;
+            if (name) document.getElementById('userName').textContent = name;
+            if (role) document.getElementById('userRole').textContent = role;
+        }
+    </script>
+</body>
+</html>
