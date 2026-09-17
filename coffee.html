@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Rating Application</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 400px; margin: 40px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; text-align: center; }
+        select, input, button { margin: 10px 0; padding: 8px; width: 100%; box-sizing: border-box; }
+        button { background: #6f4e37; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        ul { list-style: none; padding: 0; text-align: left; }
+        li { background: #f9f9f9; padding: 8px; margin: 5px 0; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h2>☕ Coffee Rating Application</h2>
+    <input type="text" id="coffeeName" placeholder="Coffee Name (e.g., Espresso)">
+    <select id="rating">
+        <option value="5 Stars ⭐⭐⭐⭐⭐">5 Stars ⭐⭐⭐⭐⭐</option>
+        <option value="4 Stars ⭐⭐⭐⭐">4 Stars ⭐⭐⭐⭐</option>
+        <option value="3 Stars ⭐⭐⭐">3 Stars ⭐⭐⭐</option>
+        <option value="2 Stars ⭐⭐">2 Stars ⭐⭐</option>
+        <option value="1 Star ⭐">1 Star ⭐</option>
+    </select>
+    <button onclick="addRating()">Submit Rating</button>
+
+    <h3>Ratings</h3>
+    <ul id="ratingsList"></ul>
+
+    <script>
+        function addRating() {
+            let name = document.getElementById('coffeeName').value;
+            let rate = document.getElementById('rating').value;
+            if(!name) return;
+            let li = document.createElement('li');
+            li.innerHTML = `<strong>${name}</strong>: ${rate}`;
+            document.getElementById('ratingsList').appendChild(li);
+            document.getElementById('coffeeName').value = '';
+        }
+    </script>
+</body>
+</html>
